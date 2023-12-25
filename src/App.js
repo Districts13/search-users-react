@@ -1,20 +1,26 @@
 import React, {useState} from "react";
-import TopSide from "./components/TopSide";
+import SearchBar from "./components/SearchBar";
 import './styles/App.css'
 import UserInformation from "./components/UserInformation";
 import Repositories from "./components/Repositories";
 
 function App() {
-    const [userName, setUserName] = useState();
-
+    const [user, setUser] = useState('');
+    console.log(user)
 
     return (
         <div className="App">
-            <TopSide />
-            <header className="whole-profile">
-                <UserInformation />
-                <Repositories />
-            </header>
+            <SearchBar user={user} setUser={setUser} />
+            {user.length
+                ?
+                <section className="whole-profile">
+                    <UserInformation user={user} setUser={setUser}/>
+                    <Repositories user={user} setUser={setUser}/>
+                </section>
+                :
+                <img style={{margin: '300px auto', display: 'block',}} width="150" height="150" src="https://img.icons8.com/ios/150/737373/search--v1.png" alt="search--v1"/>
+            }
+
         </div>
     );
 }

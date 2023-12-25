@@ -1,6 +1,7 @@
 import React from 'react';
 
-const UserInformation = () => {
+const UserInformation = ({user, setUser}) => {
+
     return (
         <div className='profile-info'>
             {/*Аватар профиля*/}

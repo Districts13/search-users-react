@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Repositories = () => {
+const Repositories = ({user, setUser}) => {
     return (
         <div className="profile-repositories">
             <section className="countRepos">
@@ -12,12 +12,12 @@ const Repositories = () => {
 
             <nav className="paginationBlock">
                 <ul id="pagination" className="pagination">
-                    <li><a href="#" onClick="prevPage()">«</a></li>
-                    <li><a href="#" onClick="changePage(1)">1</a></li>
-                    <li><a href="#" onClick="changePage(2)">2</a></li>
-                    <li><a href="#" onClick="changePage(3)">3</a></li>
-                    <li><a href="#" onClick="changePage(4)">4</a></li>
-                    <li><a href="#" onClick="nextPage()">»</a></li>
+                    <li><a href="#">«</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">»</a></li>
                 </ul>
 
             </nav>
