@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Repositories = ({user, setUser}) => {
+const Repositories = () => {
     return (
         <div className="profile-repositories">
             <section className="countRepos">

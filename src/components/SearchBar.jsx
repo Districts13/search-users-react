@@ -2,6 +2,10 @@ import React, {useState} from 'react';
 
 const SearchBar = ({user, setUser}) => {
 
+    const userChange = (event) => {
+        setUser(event.target.value)
+    }
+
     return (
         <header className="header">
             <section className="logo-search">
@@ -11,9 +15,9 @@ const SearchBar = ({user, setUser}) => {
                     className="search-bar"
                     placeholder="Введите юзернейм пользователя Гитхаб"
                     value={user}
-                    onChange={event => setUser(event.target.value)}
+                    onChange={userChange}
                 />
-                <button className="button-search">
+                <button type='submit' className="button-search">
                     <img width="25" src="https://img.icons8.com/ios-filled/50/FFFFFF/search--v1.png" alt="search--v1"/>
                 </button>
             </section>
