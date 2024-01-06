@@ -125,6 +125,8 @@ body {
 
 .reposNameReadme {
     background-color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 50px;
 }
 .reposName {
     color: deepskyblue;
@@ -139,23 +141,15 @@ body {
 }
 
 .pagination {
-    display: flex;
-    list-style: none;
-    padding: 0;
-}
-.pagination li {
-    margin-right: 5px;
-}
-.pagination a {
     text-decoration: none;
     padding: 5px 10px;
     border: none;
     border-radius: 3px;
-    color: #333;
+    margin-right: 2px;
 }
-.pagination a:hover {
+.pagination:hover {
     background-color: #f5f5f5;
 }
-.pagination a:active {
+.pagination:active {
     background-color: #a7a7a7;
 }

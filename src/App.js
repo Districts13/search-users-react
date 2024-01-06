@@ -11,10 +11,20 @@ function App() {
     const [repositories, setRepositories] = useState([])
     const [currentPage, setCurrentPage] = useState(1);
     const [reposPerPage] = useState(4);
+    const totalPages = Math.ceil(repositories.length / reposPerPage);
+
+    const handleNextPage = () => {
+        setCurrentPage((prevPage) => (prevPage < Math.ceil(repositories.length / reposPerPage) ? prevPage + 1 : prevPage));
+    };
+    const handlePrevPage = () => {
+        setCurrentPage((prevPage) => (prevPage > 1 ? prevPage - 1 : prevPage));
+    };
+
 
     const numberLastRepo = currentPage * reposPerPage;
     const numberFirstRepo = numberLastRepo - reposPerPage;
     const currentRepos = repositories.slice(numberFirstRepo, numberLastRepo);
+    const pagination = (pageNumber) => setCurrentPage(pageNumber);
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -56,9 +66,13 @@ function App() {
                     <Repositories
                         userFullApiInfo={userFullApiInfo}
                         repositories={repositories}
-                        numberLastRepo={numberLastRepo}
-                        numberFirstRepo={numberFirstRepo}
                         currentRepos={currentRepos}
+                        reposPerPage={reposPerPage}
+                        pagination={pagination}
+                        handleNextPage={handleNextPage}
+                        handlePrevPage={handlePrevPage}
+                        totalPages={totalPages}
+                        currentPage={currentPage}
                     />
                 </section>
                 :

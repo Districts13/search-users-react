@@ -15,7 +15,7 @@ const UserInformation = (userFullApiInfo) => {
 
             <section className="profile-name-username">
                 <h2 id="userOnPage">{userFullApiInfo.userFullApiInfo.login}</h2>
-                <h4 id="nameUserOnPage">{userFullApiInfo.name}</h4>
+                <h4 id="nameUserOnPage">{userFullApiInfo.userFullApiInfo.name}</h4>
             </section>
 
             <header className="profile-follows">
