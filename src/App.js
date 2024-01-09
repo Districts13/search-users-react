@@ -42,7 +42,7 @@ function App() {
     }, [user])
 
     useEffect(() => {
-        const fetchRepos = async() => {
+        const fetchRepos = async () => {
             if (user) {
                 try {
                     const responseRepos = await axios.get(`https://api.github.com/users/${user}/repos`);
@@ -62,7 +62,7 @@ function App() {
             {Object.keys(userFullApiInfo).length
                 ?
                 <section className="whole-profile">
-                    <UserInformation userFullApiInfo={userFullApiInfo} />
+                    <UserInformation userFullApiInfo={userFullApiInfo}/>
                     <Repositories
                         userFullApiInfo={userFullApiInfo}
                         repositories={repositories}
@@ -76,7 +76,7 @@ function App() {
                     />
                 </section>
                 :
-                <img style={{margin: '300px auto', display: 'block',}} width="150" height="150" src="https://img.icons8.com/ios/150/737373/search--v1.png" alt="search--v1"/>
+                <img className='maineSearchImg' src="https://img.icons8.com/ios/150/737373/search--v1.png" alt="search picture"/>
             }
 
         </div>

@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
+import classes from "./SearchBar.module.css";
 
 const SearchBar = ({user, setUser}) => {
 
@@ -7,18 +8,18 @@ const SearchBar = ({user, setUser}) => {
     }
 
     return (
-        <header className="header">
-            <section className="logo-search">
-                <img width="60" height="60" src="https://img.icons8.com/ios-glyphs/60/FFFFFF/github.png" alt="github"/>
+        <header className={classes.header}>
+            <section className={classes.containerSearchLogoButton}>
+                <img className={classes.logoGithub} src="https://img.icons8.com/ios-glyphs/60/FFFFFF/github.png" alt="github logo"/>
                 <input
                     type="text"
-                    className="search-bar"
+                    className={classes.searchBar}
                     placeholder="Введите юзернейм пользователя Гитхаб"
                     value={user}
                     onChange={userChange}
                 />
-                <button type='submit' className="button-search">
-                    <img width="25" src="https://img.icons8.com/ios-filled/50/FFFFFF/search--v1.png" alt="search--v1"/>
+                <button type='submit' className={classes.buttonSearch}>
+                    <img className={classes.imgSearchButton} src="https://img.icons8.com/ios-filled/50/FFFFFF/search--v1.png" alt="search logo"/>
                 </button>
             </section>
         </header>

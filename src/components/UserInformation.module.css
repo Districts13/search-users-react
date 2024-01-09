@@ -1,0 +1,53 @@
+#userAvatar {
+    width: 100%;
+    border-radius: 300px;
+}
+
+.profileInfo{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-right: 60px;
+}
+
+.profileAvatar {
+    height: 400px;
+}
+
+.profileNameUsername {
+    height: 100px;
+}
+
+#nameUserOnPage {
+    color: deepskyblue;
+}
+
+.profileFollows {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+}
+
+#followersCount, #followingCount {
+    padding: 0 5px;
+}
+
+.imgFollowFollowers {
+    width: 20px;
+    height: 20px;
+}
+
+.followersAndIcon, .followingAndIcon{
+    display: flex;
+    align-items: center;
+    margin: 10px;
+
+}
+
+.profileRepositories {
+    padding: 0 70px 0 150px;
+    height: 800px;
+    flex: 1;
+    position: relative;
+}

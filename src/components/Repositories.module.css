@@ -1,0 +1,37 @@
+.countRepos {
+    margin: 0;
+    font-weight: 700;
+}
+
+#countRepos {
+    display: inline-block;
+}
+
+.reposNameReadme {
+    background-color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 50px;
+}
+
+.reposName {
+    color: deepskyblue;
+}
+
+.paginationBlock {
+    position: absolute;
+    bottom: 80px;
+    right: 200px;
+}
+
+.pagination {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    margin-right: 2px;
+}
+.pagination:hover {
+    background-color: #ffffff;
+}
+.pagination:active {
+    background-color: #a7a7a7;
+}

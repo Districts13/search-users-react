@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import axios from "axios";
+import React from 'react';
+import classes from "./UserInformation.module.css";
 
 const UserInformation = (userFullApiInfo) => {
 
@@ -8,27 +8,27 @@ const UserInformation = (userFullApiInfo) => {
     }
 
     return (
-        <div className='profile-info'>
-            <header className="profile-avatar">
-                <img src={userFullApiInfo.userFullApiInfo.avatar_url} id="userAvatar" alt=""/>
+        <div className={classes.profileInfo}>
+            <header className={classes.profileAvatar}>
+                <img src={userFullApiInfo.userFullApiInfo.avatar_url} id={classes.userAvatar} alt=""/>
             </header>
 
-            <section className="profile-name-username">
-                <h2 id="userOnPage">{userFullApiInfo.userFullApiInfo.login}</h2>
-                <h4 id="nameUserOnPage">{userFullApiInfo.userFullApiInfo.name}</h4>
+            <section className={classes.profileNameUsername}>
+                <h2 id={classes.userOnPage}>{userFullApiInfo.userFullApiInfo.login}</h2>
+                <h4 id={classes.nameUserOnPage}>{userFullApiInfo.userFullApiInfo.name}</h4>
             </section>
 
-            <header className="profile-follows">
-                <section className="followersAndIcon">
-                    <img width="20" height="20" src="https://img.icons8.com/glyph-neue/32/737373/group--v1.png" alt="group--v1"/>
-                    <p id="followersCount">{(userFullApiInfo.userFullApiInfo.followers/1000).toFixed(1) +'k'}</p>
+            <header className={classes.profileFollows}>
+                <section className={classes.followersAndIcon}>
+                    <img className={classes.imgFollowFollowers} src="https://img.icons8.com/glyph-neue/32/737373/group--v1.png" alt="logo Followers"/>
+                    <p id={classes.followersCount}>{(userFullApiInfo.userFullApiInfo.followers/1000).toFixed(1) +'k'}</p>
                     <p>Followers</p>
                 </section>
-                <section className="followingAndIcon">
-                    <img width="20" height="20"
+                <section className={classes.followingAndIcon}>
+                    <img className={classes.imgFollowFollowers}
                          src="https://img.icons8.com/external-anggara-glyph-anggara-putra/32/737373/external-following-social-media-interface-anggara-glyph-anggara-putra.png"
-                         alt=""/>
-                    <p id="followingCount">{userFullApiInfo.userFullApiInfo.following}</p>
+                         alt="logo Following"/>
+                    <p id={classes.followingCount}>{userFullApiInfo.userFullApiInfo.following}</p>
                     <p>Following</p>
                 </section>
             </header>
