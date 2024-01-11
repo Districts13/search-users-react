@@ -5,6 +5,7 @@ const SearchBar = ({user, setUser}) => {
 
     const userChange = (event) => {
         setUser(event.target.value)
+
     }
 
     return (

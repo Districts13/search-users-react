@@ -24,7 +24,7 @@ const Repositories = ({userFullApiInfo, repositories, currentRepos, reposPerPage
                     «
                 </button>
                 {Array.from({length: Math.ceil(repositories.length / reposPerPage)}).map((_, index) => (
-                    <button className={classes.pagination} key={index} onClick={() => pagination(index + 1)}>
+                    <button key={index} onClick={() => pagination(index + 1)} className={currentPage === index + 1 ? classes.active : classes.pagination} >
                         {index + 1}
                     </button>
                 ))}
