@@ -4,17 +4,22 @@ import './styles/App.css'
 import UserInformation from "./components/UserInformation";
 import Repositories from "./components/Repositories";
 import axios from "axios";
+import useGitHubApi from "./hooks/useGitHubApi";
 
 function App() {
-    const [user, setUser] = useState('');
-    const [userFullApiInfo, setUserFullApiInfo] = useState({})
-    const [repositories, setRepositories] = useState([])
+
+    const {user,
+        setUser,
+        userData,} = useGitHubApi()
+
+    console.log(userData.repositories)
+
     const [currentPage, setCurrentPage] = useState(1);
     const [reposPerPage] = useState(4);
-    const totalPages = Math.ceil(repositories.length / reposPerPage);
+    const totalPages = Math.ceil(userData.repositories.length / reposPerPage);
 
     const handleNextPage = () => {
-        setCurrentPage((prevPage) => (prevPage < Math.ceil(repositories.length / reposPerPage) ? prevPage + 1 : prevPage));
+        setCurrentPage((prevPage) => (prevPage < Math.ceil(userData.repositories.length / reposPerPage) ? prevPage + 1 : prevPage));
     };
     const handlePrevPage = () => {
         setCurrentPage((prevPage) => (prevPage > 1 ? prevPage - 1 : prevPage));
@@ -23,49 +28,20 @@ function App() {
 
     const numberLastRepo = currentPage * reposPerPage;
     const numberFirstRepo = numberLastRepo - reposPerPage;
-    const currentRepos = repositories.slice(numberFirstRepo, numberLastRepo);
+    const currentRepos = userData.repositories.slice(numberFirstRepo, numberLastRepo);
     const pagination = (pageNumber) => setCurrentPage(pageNumber);
 
-    useEffect(() => {
-        const fetchUsers = async () => {
-            try {
-                const responseUser = await axios.get(`https://api.github.com/users/${user}`);
-                setUserFullApiInfo(responseUser.data);
-            } catch (error) {
-                console.error('Error search user: ', error);
-            }
-        };
-        // Проверка, пустая ли строка
-        if (user.trim() !== '') {
-            fetchUsers();
-        }
-    }, [user])
-
-    useEffect(() => {
-        const fetchRepos = async () => {
-            if (user) {
-                try {
-                    const responseRepos = await axios.get(`https://api.github.com/users/${user}/repos`);
-                    setRepositories(responseRepos.data);
-                } catch (e) {
-                    console.error('Error search user repos: ', e);
-                }
-            }
-        };
-        fetchRepos()
-
-    }, [user])
 
     return (
         <div className="App">
             <SearchBar user={user} setUser={setUser}/>
-            {Object.keys(userFullApiInfo).length
+            {Object.keys(userData).length
                 ?
                 <section className="whole-profile">
-                    <UserInformation userFullApiInfo={userFullApiInfo}/>
+                    <UserInformation userFullApiInfo={userData}/>
                     <Repositories
-                        userFullApiInfo={userFullApiInfo}
-                        repositories={repositories}
+                        userFullApiInfo={userData}
+                        repositories={userData.repositories}
                         currentRepos={currentRepos}
                         reposPerPage={reposPerPage}
                         pagination={pagination}
